@@ -88,19 +88,20 @@ def try_req(after,before):
 		print(len(dataset['data']))
 		return
 	
-try:
+
 		
-	for i in range(2000):
+for i in range(2000):
+
 		print("+"*10)
 		before = 1560143153 - i*24*3600
 		after = 1560143153	- (i+1)*24*3600
+		try:
+			try_req(after,before)
 		
-		try_req(after,before)
-		
-		print("+"*10)	
-except Exception as e:
-	logging.fatal(e, exc_info=True)
-	print(e)
+			print("+"*10)	
+		except Exception as e:
+			logging.fatal(e, exc_info=True)
+			print(e)
 		
 	
 	
