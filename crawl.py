@@ -85,7 +85,7 @@ def try_req(after,before):
 		pickle.dump(dataset,fw)
 		fw.close()
 		print(dataset)
-		print(""len(dataset['data']))
+		print(len(dataset['data']))
 		return
 	
 try:
