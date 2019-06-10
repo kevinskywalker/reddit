@@ -20,6 +20,21 @@
 import praw
 import pickle
 import requests as req
+import logging
+
+
+
+logging.basicConfig(filename='reddit.log',
+                            filemode='a',
+                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                            datefmt='%H:%M:%S',
+                            level=logging.DEBUG)
+
+
+
+self.logger = logging.getLogger('urbanGUI')
+
+
 
 # import pickle
 # dataset = ['hello','test']
@@ -58,23 +73,37 @@ def try_req(after,before):
 	
 	dataset = req.get(url).json()
 	
-	fw = open(str(before)+'--'+str(after)+'.data','wb')
-	pickle.dump(dataset,fw)
-	fw.close()
-	print(dataset)
-	print(len(dataset['data']))
-	return
+	print("len: "len(dataset['data']))
+	if len(dataset['data']) == 0:
+		logging.info('no submission for'str(after)+str(before))
+		return:
+		
+	else:
 	
 	
-for i in range(2000):
-	print("+"*10)
-	before = 1560143153 - i*24*3600
-	after = 1560143153	- (i+1)*24*3600
+		fw = open(str(before)+'--'+str(after)+'.data','wb')
+		pickle.dump(dataset,fw)
+		fw.close()
+		print(dataset)
+		print(""len(dataset['data']))
+		return
 	
-	try_req(after,before)
-	
-	print("+"*10)
-	
+try:
+		
+	for i in range(2000):
+		print("+"*10)
+		before = 1560143153 - i*24*3600
+		after = 1560143153	- (i+1)*24*3600
+		
+		try_req(after,before)
+		
+		print("+"*10)
+		
+		
+except Exception as e:
+    logging.fatal(e, exc_info=True)
+	print(e)
+		
 	
 	
 	
