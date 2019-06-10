@@ -33,12 +33,12 @@ reddit = praw.Reddit(client_id='OdmWFqaQxh6JDQ',
 
 					 
 		
-		
-fw = open('output.data','wb')
+string = 'daily discussion'
+fw = open(string+'.data','wb')
 
 print(reddit.read_only)
 
-dataset = reddit.subreddit('Stocks').search('daily',limit=25)
+dataset = reddit.subreddit('Stocks').search(string)
 print(dataset)
 for submission in dataset:
     print(submission.title)
