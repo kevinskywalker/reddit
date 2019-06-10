@@ -39,6 +39,7 @@ fw = open('output.data','wb')
 print(reddit.read_only)
 
 dataset = reddit.subreddit('Stocks').search('daily',limit=25)
+print(dataset)
 for submission in dataset:
     print(submission.title)
 
