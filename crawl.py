@@ -75,7 +75,7 @@ def try_req(after,before):
 	
 	print("len: "+len(dataset['data']))
 	if len(dataset['data']) == 0:
-		logging.info('no submission for'str(after)+str(before))
+		logging.info('no submission for'+str(after)+str(before))
 		return:
 		
 	else:
