@@ -97,11 +97,9 @@ try:
 		
 		try_req(after,before)
 		
-		print("+"*10)
-		
-		
+		print("+"*10)	
 except Exception as e:
-    logging.fatal(e, exc_info=True)
+	logging.fatal(e, exc_info=True)
 	print(e)
 		
 	
