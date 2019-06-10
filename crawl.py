@@ -19,7 +19,7 @@
 # print(a.content.decode("utf-8"))
 import praw
 import pickle
-import requests
+import requests as req
 
 # import pickle
 # dataset = ['hello','test']
