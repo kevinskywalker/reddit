@@ -1,0 +1,44 @@
+05:56:39,63 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:56:39,166 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1560056753&before=1560143153 HTTP/1.1" 200 None
+05:56:39,173 root CRITICAL can only concatenate str (not "int") to str
+Traceback (most recent call last):
+  File "crawl.py", line 98, in <module>
+    try_req(after,before)
+  File "crawl.py", line 76, in try_req
+    print("len: "+len(dataset['data']))
+TypeError: can only concatenate str (not "int") to str
+05:57:39,304 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:39,435 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1560056753&before=1560143153 HTTP/1.1" 200 None
+05:57:39,478 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:39,591 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559970353&before=1560056753 HTTP/1.1" 200 None
+05:57:39,630 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:39,762 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559883953&before=1559970353 HTTP/1.1" 200 None
+05:57:39,811 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,12 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559797553&before=1559883953 HTTP/1.1" 200 None
+05:57:40,77 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,202 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559711153&before=1559797553 HTTP/1.1" 200 None
+05:57:40,242 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,367 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559624753&before=1559711153 HTTP/1.1" 200 None
+05:57:40,424 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,568 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559538353&before=1559624753 HTTP/1.1" 200 None
+05:57:40,614 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,743 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559451953&before=1559538353 HTTP/1.1" 200 None
+05:57:40,769 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,885 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559365553&before=1559451953 HTTP/1.1" 200 None
+05:57:40,927 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.pushshift.io:443
+05:57:40,999 urllib3.connectionpool DEBUG https://api.pushshift.io:443 "GET /reddit/submission/search/?subreddit=stocks&size=500&after=1559279153&before=1559365553 HTTP/1.1" 429 185
+05:57:41,1 root CRITICAL Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "crawl.py", line 98, in <module>
+    try_req(after,before)
+  File "crawl.py", line 74, in try_req
+    dataset = req.get(url).json()
+  File "/usr/lib/python3.7/site-packages/requests/models.py", line 896, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.7/site-packages/simplejson/__init__.py", line 518, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.7/site-packages/simplejson/decoder.py", line 370, in decode
+    obj, end = self.raw_decode(s)
+  File "/usr/lib/python3.7/site-packages/simplejson/decoder.py", line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
