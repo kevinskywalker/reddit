@@ -73,7 +73,7 @@ def try_req(after,before):
 	
 	dataset = req.get(url).json()
 	
-	print("len: "len(dataset['data']))
+	print("len: "+len(dataset['data']))
 	if len(dataset['data']) == 0:
 		logging.info('no submission for'str(after)+str(before))
 		return:
