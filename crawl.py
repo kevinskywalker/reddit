@@ -58,7 +58,7 @@ def try_req(after,before):
 	
 	dataset = req.get(url).json()
 	
-	fw = open(str(before)+'--'+str(after)+'.data')
+	fw = open(str(before)+'--'+str(after)+'.data','wb')
 	pickle.dump(dataset,fw)
 	fw.close()
 	print(dataset)
