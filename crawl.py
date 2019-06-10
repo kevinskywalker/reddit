@@ -21,6 +21,7 @@ import praw
 import pickle
 import requests as req
 import logging
+import time
 
 
 
@@ -104,6 +105,7 @@ for i in range(2000):
 			logging.fatal(e, exc_info=True)
 			print(e)
 		
+		time.sleep(1)
 	
 	
 	
