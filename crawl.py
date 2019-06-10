@@ -19,6 +19,7 @@
 # print(a.content.decode("utf-8"))
 import praw
 import pickle
+import requests
 
 # import pickle
 # dataset = ['hello','test']
@@ -27,21 +28,60 @@ import pickle
 # pickle.dump(dataset, fw)
 # fw.close()
 
-reddit = praw.Reddit(client_id='OdmWFqaQxh6JDQ',
-                     client_secret='xocefyZlXYvlOCwyOLcF7WOuxFE',
-                     user_agent='android:com.example.myredditapp:v1.2.3 (by /u/kevinljc)')
 
-					 
-		
-string = 'daily discussion'
-fw = open(string+'.data','wb')
+def try_praw():
 
-print(reddit.read_only)
+	reddit = praw.Reddit(client_id='OdmWFqaQxh6JDQ',
+						 client_secret='xocefyZlXYvlOCwyOLcF7WOuxFE',
+						 user_agent='android:com.example.myredditapp:v1.2.3 (by /u/kevinljc)')
 
-dataset = reddit.subreddit('Stocks').search(string)
-print(dataset)
-for submission in dataset:
-    print(submission.title)
+						 
+			
+	string = 'daily discussion'
+	fw = open(string+'.data','wb')
 
-pickle.dump(dataset,fw)
-fw.close()
+	print(reddit.read_only)
+
+	dataset = reddit.subreddit('Stocks').search(string)
+	print(dataset)
+	for submission in dataset:
+		print(submission.title)
+
+	pickle.dump(dataset,fw)
+	fw.close()
+	
+	
+def try_req(after,before):
+
+	
+	url  = "https://api.pushshift.io/reddit/submission/search/?subreddit=stocks&size=500&after={0}&before={1}".format(after,before)
+	
+	dataset = req.get(url).json()
+	
+	fw = open(str(before)+'--'+str(after)+'.data')
+	pickle.dump(dataset,fw)
+	fw.close()
+	print(dataset)
+	print(len(dataset['data']))
+	return
+	
+	
+for i in range(2000):
+	print("+"*10)
+	before = 1560143153 - i*24*3600
+	after = 1560143153	- (i+1)*24*3600
+	
+	try_req(after,before)
+	
+	print("+"*10)
+	
+	
+	
+	
+
+	
+
+
+
+
+
