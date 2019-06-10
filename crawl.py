@@ -32,7 +32,7 @@ logging.basicConfig(filename='reddit.log',
 
 
 
-self.logger = logging.getLogger('urbanGUI')
+#self.logger = logging.getLogger('urbanGUI')
 
 
 
