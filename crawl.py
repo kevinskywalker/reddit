@@ -76,6 +76,7 @@ def try_req(after,before):
 	print("len: "+str(len(dataset['data'])))
 	if len(dataset['data']) == 0:
 		logging.info('no submission for'+str(after)+str(before))
+		print('passing ...')
 		return
 		
 	else:
@@ -84,8 +85,8 @@ def try_req(after,before):
 		fw = open(str(before)+'--'+str(after)+'.data','wb')
 		pickle.dump(dataset,fw)
 		fw.close()
-		print(dataset)
-		print(len(dataset['data']))
+
+
 		return
 	
 
