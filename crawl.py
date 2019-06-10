@@ -95,12 +95,13 @@ def try_req(after,before):
 for i in range(2000):
 
 		print("+"*10)
-		before = 1560143153 - i*24*3600
-		after = 1560143153	- (i+1)*24*3600
+		before = 1387343153 - i*24*3600
+		after = 1387343153	- (i+1)*24*3600
 		try:
 			try_req(after,before)
 		
-			print("+"*10)	
+			print("+"*10)
+			print(before)
 		except Exception as e:
 			logging.fatal(e, exc_info=True)
 			print(e)
