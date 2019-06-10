@@ -102,6 +102,10 @@ for i in range(2000):
 		
 			print("+"*10)
 			print(before)
+			print("+"*10)
+			print(i)
+			print("+"*10)
+			
 		except Exception as e:
 			logging.fatal(e, exc_info=True)
 			print(e)
