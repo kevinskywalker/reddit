@@ -31,7 +31,16 @@ reddit = praw.Reddit(client_id='OdmWFqaQxh6JDQ',
                      client_secret='xocefyZlXYvlOCwyOLcF7WOuxFE',
                      user_agent='android:com.example.myredditapp:v1.2.3 (by /u/kevinljc)')
 
+					 
+		
+		
+fw = open('output.data','wb')
+
 print(reddit.read_only)
 
-for submission in reddit.subreddit('Stocks').top(limit=25):
+dataset = reddit.subreddit('Stocks').search('daily',limit=25)
+for submission in dataset:
     print(submission.title)
+
+pickle.dump(dataset,fw)
+fw.close()
